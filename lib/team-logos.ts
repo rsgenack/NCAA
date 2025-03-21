@@ -9,7 +9,10 @@ export function getTeamLogoUrl(teamName: string): string {
 
   // Check if we have an SVG logo for this team
   if (hasSvgLogo(teamName)) {
-    return getSvgLogoPath(teamName) as string
+    const logoPath = getSvgLogoPath(teamName)
+    if (logoPath) {
+      return logoPath
+    }
   }
 
   // Map of team names to their website URLs
